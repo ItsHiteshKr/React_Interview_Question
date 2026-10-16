@@ -9,7 +9,7 @@ const Accordion = () => {
     const [multipleOpen, setMultipleOpen] = useState(false);
 
     const toggleItem = (index) => {
-        if (multipleOpen) {
+        if(multipleOpen){
             setOpenItems((prevItems) =>
                 prevItems.includes(index)
                     ? prevItems.filter((itemIndex) => itemIndex !== index)
@@ -17,16 +17,19 @@ const Accordion = () => {
             );
             return;
         }
-
-        setOpenItems((prevItems) => (prevItems.includes(index) ? [] : [index]));
+        
+        setOpenItems((prevItems) => (
+            prevItems.includes(index) ? [] : [index]
+        ));
     };
 
     const handleMultipleOpenToggle = (checked) => {
         setMultipleOpen(checked);
 
-        if (!checked && openItems.length > 1) {
-            setOpenItems([openItems[openItems.length - 1]]);
+        if (!checked) {
+            setOpenItems([]);
         }
+
     };
 
     return (
@@ -42,16 +45,16 @@ const Accordion = () => {
                 />
             </div>
             <div>
-                {AccordionData.map((item, index) => {
-                    const isOpen = multipleOpen ? openItems.includes(index) : openItems[0] === index;
+                {AccordionData?.map((item, id) => {
+                    const isOpen = multipleOpen ? openItems.includes(id) : openItems[0] === id;
 
                     return (
-                        <div key={index} className="border border-gray-300 py-2 rounded-lg shadow-md px-10 w-250 mb-2">
+                        <div key={id} className="border border-gray-300 py-2 rounded-lg shadow-md px-10 w-250 mb-2">
                             <div className="flex items-center justify-between cursor-pointer px-1 gap-3 mb-5">
                                 <h2 className="text-lg font-semibold">{item.title}</h2>
                                 <button
                                     className="text-gray-700 px-3 py-1 rounded-full bg-gray-200 cursor-pointer"
-                                    onClick={() => toggleItem(index)}
+                                    onClick={() => toggleItem(id)}
                                 >
                                     {isOpen ? '-' : '+'}
                                 </button>

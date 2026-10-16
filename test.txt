@@ -1,0 +1,23 @@
+const [openItems, setOpenItems] = useState([]);
+    const [multipleOpen, setMultipleOpen] = useState(false);
+
+    const toggleItem = (index) => {
+        if (multipleOpen) {
+            setOpenItems((prevItems) =>
+                prevItems.includes(index)
+                    ? prevItems.filter((itemIndex) => itemIndex !== index)
+                    : [...prevItems, index]
+            );
+            return;
+        }
+
+        setOpenItems((prevItems) => (prevItems.includes(index) ? [] : [index]));
+    };
+
+    const handleMultipleOpenToggle = (checked) => {
+        setMultipleOpen(checked);
+
+        if (!checked && openItems.length > 1) {
+            setOpenItems([openItems[openItems.length - 1]]);
+        }
+    };
