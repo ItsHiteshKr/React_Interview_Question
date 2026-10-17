@@ -4,6 +4,12 @@ import ImageGallery from "../challanges/Easy/ImageGallery";
 import Accordion from "../challanges/Easy/Accordion";
 import SimpleAccordian from "../challanges/Easy/SimpleAccordian";
 import GuessTheNumber from "../challanges/Easy/GuessTheNumber";
+import StarRating from "../challanges/Easy/StarRating";
+
+
+
+
+
 
 const HomePage = () => {
   return (
@@ -13,7 +19,8 @@ const HomePage = () => {
       {/* <ImageGallery /> */}
       {/* <Accordion /> */}
       {/* <SimpleAccordian /> */}
-      <GuessTheNumber />
+      {/* <GuessTheNumber /> */}
+      <StarRating />
     </div>
   );
 };
