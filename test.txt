@@ -1,0 +1,21 @@
+<div
+                className="flex"
+                onMouseLeave={() => setHoverRating(0)}
+                role="radiogroup"
+                aria-label="Star rating"
+            >
+                {Stars.map((star, index) => (
+                    <button
+                        key={index}
+                        type="button"
+                        className="cursor-pointer text-3xl leading-none text-amber-400 transition-transform hover:scale-110 focus:outline-none focus-visible:rounded focus-visible:ring-2 focus-visible:ring-amber-400"
+                        onClick={() => handleRating(star)}
+                        onMouseEnter={() => handleMouseEnter(star)}
+                        role="radio"
+                        aria-checked={rating === star}
+                        aria-label={`${star} star${star > 1 ? 's' : ''}`}
+                    >
+                        {star <= (hoverRating || rating) ? '★' : '☆'}
+                    </button>
+                ))}
+            </div>

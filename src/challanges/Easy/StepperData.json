@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Contact Details",
+    "Component": "Add contact details for further communications."
+  },
+  {
+    "id": 2,
+    "name": "Shipping Address",
+    "Component": "Add shipping address for successful delivery."
+  },
+  {
+    "id": 3,
+    "name": "Payment",
+    "Component": "Complete Payment to complete the order."
+  },
+  {
+    "id": 4,
+    "name": "Delivered",
+    "Component": "Ready to get delivered!"
+  }
+]
