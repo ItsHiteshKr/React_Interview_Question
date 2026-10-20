@@ -21,10 +21,10 @@ const HomePage = () => {
       {/* <Accordion /> */}
       {/* <SimpleAccordian /> */}
       {/* <GuessTheNumber /> */}
-      <StarRating />
+      {/* <StarRating /> */}
       {/* <Telephone_Formatter /> */}
       {/* <String_Transformers /> */}
-      <Steppers />
+      {/* <Steppers /> */}
       <TicTac_Toe />
     </div>
   );

@@ -1,16 +1,120 @@
-import React from 'react'
+import React, { useState } from 'react'
 
+const winnerSets = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
 const TicTac_Toe = () => {
+
+    const [xwin, setXwin] = useState(0);
+    const [owin, setOwin] = useState(0);
+    const [draw, setDraw] = useState(0);
+
+    const [board, setBoard] = useState(Array(9).fill(null));
+    const [isXTurn, setIsXTurn] = useState(true);
+    const [winner, setWinner] = useState(null);
+
+
+    const handleCellClick = (index) => {
+
+        if (board[index] || winner) {
+            return;
+        }
+        const nextBoard = [...board];
+        nextBoard[index] = isXTurn ? 'X' : 'O';
+        setIsXTurn(!isXTurn);
+        setBoard(nextBoard);
+
+        const result = checkWinner(nextBoard);
+
+        if (result) {
+            setWinner(result);
+
+            if (result === 'X') {
+                setXwin(xwin + 1);
+            } else if (result === 'O') {
+                setOwin(owin + 1);
+            } else if (result === 'Draw') {
+                setDraw(draw + 1);
+            }
+
+        }
+    }
+
+
+    const checkWinner = (currentBoard) => {
+
+        for (const [a, b, c] of winnerSets) {
+            if (currentBoard[a] && currentBoard[a] === currentBoard[b] && currentBoard[a] === currentBoard[c]) {
+                return currentBoard[a];
+            }
+        }
+
+        if (currentBoard.every((cell) => cell !== null)) {
+            return 'Draw';
+        }
+
+        return null;
+    }
+
+    const handleRematch = () => {
+        setBoard(Array(9).fill(null));
+        setIsXTurn(true);
+        setWinner(null);
+    }
+
     return (
         <div className="flex flex-col items-center justify-center gap-4">
             <h1 className="text-3xl font-bold border-b-2 border-gray-600 pb-1">
                 Tic Tac Toe Component
             </h1>
+            <p className="text-lg font-bold">Status: {winner ? `Winner ${winner}` : 'Playing'}</p>
             <div className="flex flex-col items-center justify-center gap-2">
+                <div className="grid grid-cols-3 gap-4 font-bold">
+
+                    <p className="flex flex-col items-center">
+                        X <span className="font-bold">{xwin} Wins</span>
+                    </p>
+                    <p className="flex flex-col items-center">
+                        O <span className="font-bold">{owin} Wins</span>
+                    </p>
+                    <p className="flex flex-col items-center">
+                        = <span className="font-bold">{draw} Draws</span>
+                    </p>
+                </div>
 
             </div>
+
+            <div className="grid grid-cols-3">
+                {Array.from({ length: 9 }).map((_, index) => (
+                    <div
+                        key={index}
+                        className="h-16 w-16 flex items-center justify-center border border-gray-400 text-2xl font-bold cursor-pointer hover:bg-gray-100"
+                        onClick={() => { handleCellClick(index) }}
+                    >
+                        {/* Cell content */}
+                        {
+                            board[index]
+                        }
+                    </div>
+                ))}
+            </div>
+
+            <button className="rounded-lg bg-slate-100 border border-slate-300 mb-6 px-6 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-gray-200 cursor-pointer disabled:cursor-not-allowed disabled:opacity-40"
+                onClick={handleRematch}
+            >
+                Rematch
+            </button>
+
+
         </div>
     )
 }
 
-export default TicTac_Toe
+export default TicTac_Toe;
