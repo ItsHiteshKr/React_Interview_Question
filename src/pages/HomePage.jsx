@@ -14,6 +14,9 @@ import TicTac_Toe from "../challanges/Easy/TicTac_Toe";
 import Calculator from "../challanges/medium/Calculator";
 import Traffic_Lights from "../challanges/medium/Traffic_Lights";
 import Toast_Popup from "../challanges/medium/Toast_Popup";
+import Modal_Popup from "../challanges/medium/Modal_Popup";
+
+
 
 // hard
 
@@ -33,9 +36,10 @@ const HomePage = () => {
       {/* <TicTac_Toe /> */}
 
       {/* Medium */}
-      <Calculator />
+      {/* <Calculator /> */}         {/* Abhi complete karna hai */}
       {/* <Traffic_Lights /> */}
       {/* <Toast_Popup /> */}
+      <Modal_Popup />
 
 
     </div>
