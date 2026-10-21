@@ -1,4 +1,5 @@
 import React from "react";
+// Easy
 import Counter from "../challanges/Easy/Counter";
 import ImageGallery from "../challanges/Easy/ImageGallery";
 import Accordion from "../challanges/Easy/Accordion";
@@ -9,8 +10,12 @@ import Telephone_Formatter from "../challanges/Easy/Telephone_Formatter";
 import String_Transformers from "../challanges/Easy/String_Transformers";
 import Steppers from "../challanges/Easy/Steppers";
 import TicTac_Toe from "../challanges/Easy/TicTac_Toe";
+// Medium
+import Calculator from "../challanges/medium/Calculator";
+import Traffic_Lights from "../challanges/medium/Traffic_Lights";
+import Toast_Popup from "../challanges/medium/Toast_Popup";
 
-
+// hard
 
 const HomePage = () => {
   return (
@@ -25,7 +30,14 @@ const HomePage = () => {
       {/* <Telephone_Formatter /> */}
       {/* <String_Transformers /> */}
       {/* <Steppers /> */}
-      <TicTac_Toe />
+      {/* <TicTac_Toe /> */}
+
+      {/* Medium */}
+      <Calculator />
+      {/* <Traffic_Lights /> */}
+      {/* <Toast_Popup /> */}
+
+
     </div>
   );
 };
