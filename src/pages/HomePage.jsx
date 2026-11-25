@@ -15,8 +15,12 @@ import Calculator from "../challanges/medium/Calculator";
 import Traffic_Lights from "../challanges/medium/Traffic_Lights";
 import Toast_Popup from "../challanges/medium/Toast_Popup";
 import Modal_Popup from "../challanges/medium/Modal_Popup";
-
-
+import Password_Strength from "../challanges/medium/Password_Strength";
+import Grid_lights from "../challanges/medium/Grid_lights";
+import Column_Table from "../challanges/medium/Column_Table";
+import Todo_List from "../challanges/medium/Todo_List";
+import StopWatch from "../challanges/medium/StopWatch";
+import Quiz_App from "../challanges/medium/Quiz_App";
 
 // hard
 
@@ -39,8 +43,14 @@ const HomePage = () => {
       {/* <Calculator /> */}         {/* Abhi complete karna hai */}
       {/* <Traffic_Lights /> */}
       {/* <Toast_Popup /> */}
-      <Modal_Popup />
-
+      {/* <Modal_Popup /> */}
+      {/* <Password_Strength /> */}
+      {/* <Grid_lights /> */}
+      {/* <Column_Table /> */}
+      {/* <Todo_List /> */}
+      <StopWatch />
+      <Quiz_App />
+      {/* Hard */}
 
     </div>
   );
